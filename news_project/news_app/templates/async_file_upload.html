@@ -6,10 +6,53 @@
     <title>Async File Upload</title>
     <!-- Bootstrap CSS Link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 50px;
+        }
+
+        #fileInput {
+            border: 2px solid #ced4da;
+            border-radius: 4px;
+        }
+
+        #uploadButton {
+            background-color: #007bff;
+            border: none;
+        }
+
+        #uploadButton:hover {
+            background-color: #0056b3;
+        }
+
+        #alertModal {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        #preloader {
+            text-align: center;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <h2 class="mb-4">Async File Upload</h2>
+    <div class="container">
+        <h2 class="mb-4 text-primary">Async File Upload</h2>
         <form id="fileUploadForm" action="{% url 'async_file_upload' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="mb-3">
@@ -22,7 +65,7 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">Alert</h5>
+                            <h5 class="modal-title text-primary">Alert</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -35,64 +78,64 @@
                 </div>
             </div>
             <!-- End Modal -->
-            <div id="preloader" style="display: none;">
+            <div id="preloader">
                 <div class="spinner-border text-primary" role="status">
                     <span class="visually-hidden">Loading...</span>
                 </div>
-                <p>Uploading...</p>
+                <p class="mt-2">Uploading...</p>
             </div>
         </form>
     </div>
 
+    <!-- Bootstrap JS and Popper.js Links -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
     <script>
-    document.getElementById('fileUploadForm').addEventListener('submit', async function (event) {
-        event.preventDefault();
+        document.getElementById('fileUploadForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
 
-        const fileInput = document.getElementById('fileInput');
-        const uploadButton = document.getElementById('uploadButton');
-        const preloader = document.getElementById('preloader');
-        const alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
+            const fileInput = document.getElementById('fileInput');
+            const uploadButton = document.getElementById('uploadButton');
+            const preloader = document.getElementById('preloader');
+            const alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
 
-        
-        if (!fileInput.files.length) {
-            
-            document.getElementById('alertModal').querySelector('.modal-body').innerHTML = 'Please select a file.';
-            alertModal.show();
-            return;
-        }
-
-        const formData = new FormData(this);
-
-        uploadButton.style.display = 'none';
-        preloader.style.display = 'block';
-
-        try {
-            const response = await fetch('{% url "async_file_upload" %}', {
-                method: 'POST',
-                body: formData,
-            });
-
-            const data = await response.json();
-
-            if (data.status === 'success') {
-                document.getElementById('alertModal').querySelector('.modal-body').innerHTML = data.message;
-            } else {
-                document.getElementById('alertModal').querySelector('.modal-body').innerHTML = 'File upload failed.';
+            if (!fileInput.files.length) {
+                document.getElementById('alertModal').querySelector('.modal-body').innerHTML = 'Please select a file.';
+                alertModal.show();
+                return;
             }
-            
-            alertModal.show();
-        } catch (error) {
-            console.error('File upload error:', error);
-            document.getElementById('alertModal').querySelector('.modal-body').innerHTML = 'File upload failed.';
-            alertModal.show();
-        } finally {
-            uploadButton.style.display = 'block';
-            preloader.style.display = 'none';
-            this.reset();
-        }
-    });
+
+            const formData = new FormData(this);
+
+            uploadButton.style.display = 'none';
+            preloader.style.display = 'block';
+
+            try {
+                const response = await fetch('{% url "async_file_upload" %}', {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                const data = await response.json();
+
+                if (data.status === 'success') {
+                    document.getElementById('alertModal').querySelector('.modal-body').innerHTML = data.message;
+                } else {
+                    document.getElementById('alertModal').querySelector('.modal-body').innerHTML = 'File upload failed.';
+                }
+
+                alertModal.show();
+            } catch (error) {
+                console.error('File upload error:', error);
+                document.getElementById('alertModal').querySelector('.modal-body').innerHTML = 'File upload failed.';
+                alertModal.show();
+            } finally {
+                uploadButton.style.display = 'block';
+                preloader.style.display = 'none';
+                this.reset();
+            }
+        });
     </script>
 </body>
 </html>

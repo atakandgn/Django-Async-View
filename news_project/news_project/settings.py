@@ -11,23 +11,21 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# Maksimum istek boyutunu belirtir (varsayılan 2.5 MB)
-DATA_UPLOAD_MAX_MEMORY_SIZE = 1024 * 1024 * 1024 * 3  # Örneğin, 3 GB
-
-# İzin verilen maksimum dosya yükleme boyutunu belirtir (varsayılan 2.5 MB)
-# Dosya yükleme boyutunu sınırsız yapmak için 0 kullanabilirsiniz.
-FILE_UPLOAD_MAX_MEMORY_SIZE = 1024 * 1024 * 1024 * 3  # Örneğin, 3 GB
+# Maksimum istek boyutunu belirtir (3 GB)
+DATA_UPLOAD_MAX_MEMORY_SIZE = 1024 * 1024 * 1024 * 3 
+#  Dosya yükleme boyutunu sınırsız yapar
+FILE_UPLOAD_MAX_MEMORY_SIZE = 0
 
 # Application definition
 INSTALLED_APPS = [
-    'news_app', # news_app'ı ekledik
+    'news_app', # news_app uygulamasını eklendi
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'debug_toolbar',  # Debug Toolbar'ı ekledik
+    'debug_toolbar',  # Debug Toolbar'ı eklendi
 ]
 
 MIDDLEWARE = [
@@ -38,10 +36,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',  # Debug Toolbar middleware'ini ekledik
+    'debug_toolbar.middleware.DebugToolbarMiddleware',  # Debug Toolbar middleware eklendi
 ]
 
-# Debug Toolbar'ın nerede görüneceğini belirledik
+# Debug Toolbar ayarları
 DEBUG_TOOLBAR_PANELS = [
     'debug_toolbar.panels.versions.VersionsPanel',
     'debug_toolbar.panels.timer.TimerPanel',

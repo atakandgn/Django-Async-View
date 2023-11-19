@@ -1,4 +1,3 @@
-# news_app/urls.py
 from django.urls import path
 from .views import async_news, sync_news, homepage, async_file_upload_view
 

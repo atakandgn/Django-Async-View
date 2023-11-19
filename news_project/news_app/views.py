@@ -1,4 +1,3 @@
-# news_app/views.py
 from django.shortcuts import render
 import httpx
 import requests
