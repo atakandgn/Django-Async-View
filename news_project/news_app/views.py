@@ -12,7 +12,7 @@ from django.contrib import messages
 secretApiKey = '748f25a23a3b4382b6e401d5b3852d03'
 
 api_key = '98c637c4a52847229f6201402231911 '
-city = 'Istanbul'
+city = 'United Kingdom'
 unit = 'metric'
 
 def homepage(request):
