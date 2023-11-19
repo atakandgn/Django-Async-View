@@ -38,7 +38,7 @@ The project should now be running at http://localhost:8000/.
 
 ### Clone the Repository
 
-1. Clone this repository: `git clone https://github.com/kullanici_adi/async-view-project.git`
+1. Clone this repository: `git clone https://github.com/atakandgn/async-view-project.git`
 
 2. Navigate to the project directory: `cd async-view-project`
 
@@ -104,7 +104,7 @@ Proje şimdi http://localhost:8000/ adresinde çalışıyor olmalıdır.
 
 ### Depoyu Klonlama
 
-1. Bu depoyu klonlayın: `git clone https://github.com/kullanici_adi/async-view-project.git`
+1. Bu depoyu klonlayın: `git clone https://github.com/atakandgn/async-view-project.git`
 
 2. Proje dizinine gidin: `cd async-view-project`
 
