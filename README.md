@@ -20,7 +20,7 @@ Follow the steps below to run the project examples.
 
 1. Navigate to the project directory: `cd async-view-project`
 
-2. If you are using virtualenv, activate your virtual environment: `source venv/bin/activate`
+2. If you are using virtualenv, activate your virtual environment: `source myenv/Scripts/activate`
 
 3. Install the required dependencies: `pip install ...`
 
@@ -38,11 +38,11 @@ The project should now be running at http://localhost:8000/.
 
 ### Clone the Repository
 
-1. Clone this repository: `git clone https://github.com/atakandgn/async-view-project.git`
+1. Clone this repository: `git clone https://github.com//atakandgn/Django-Async-View`
 
 2. Navigate to the project directory: `cd async-view-project`
 
-3. If you are using virtualenv, activate your virtual environment: `source venv/bin/activate`
+3. If you are using virtualenv, activate your virtual environment: `source myenv/bin/activate`
 
 4. Install the required dependencies: `pip install ...`
 
@@ -86,7 +86,7 @@ Proje örneklerini çalıştırmak için aşağıdaki adımları izleyin.
 
 1. Proje dizinine gidin: `cd async-view-project`
 
-2. Eğer virtualenv kullanıyorsanız, sanal ortamınızı etkinleştirin: `source venv/bin/activate`
+2. Eğer virtualenv kullanıyorsanız, sanal ortamınızı etkinleştirin: `source myenv/Scripts/activate`
 
 3. Gerekli bağımlılıkları yükleyin: `pip install ...`
 
@@ -104,7 +104,7 @@ Proje şimdi http://localhost:8000/ adresinde çalışıyor olmalıdır.
 
 ### Depoyu Klonlama
 
-1. Bu depoyu klonlayın: `git clone https://github.com/atakandgn/async-view-project.git`
+1. Bu depoyu klonlayın: `git clone https://github.com/github.com//atakandgn/Django-Async-View`
 
 2. Proje dizinine gidin: `cd async-view-project`
 
