@@ -50,9 +50,6 @@ async def async_news(request):
     
     return render(request, 'async_news_list.html', {'async_news_data': async_news_data, 'async_news_data2': async_news_data2, 'weather_data': weather_data, 'elapsed_time': elapsed_time})
     
-
-
-
 # Synchronous Django view
 def sync_news(request):
     start_time = time.time()
@@ -84,12 +81,12 @@ async def async_file_upload_view(request):
         uploaded_file = request.FILES['file']
         upload_path = os.path.join('uploads', uploaded_file.name)
 
-        # Save the file to the specified path
+        # Save the file to the specified path 
         with default_storage.open(upload_path, 'wb') as destination:
             for chunk in uploaded_file.chunks():
                 destination.write(chunk)
 
-        # Dosyanın yüklendiği klasörü kontrol eder
+        # Check if the file is in the upload folder
         upload_folder = os.path.join(default_storage.location, 'uploads')
         if os.path.exists(os.path.join(upload_folder, uploaded_file.name)):
             
